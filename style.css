@@ -6,6 +6,7 @@
   box-sizing: border-box;
 }
 
+/* titre - nom du site Web */
 h1 {
   font-family: "Parisienne", cursive;
   font-size: 35px;
@@ -16,16 +17,16 @@ h1 {
   border-bottom: double 5px rgba(255, 255, 255, 0.2);
 }
 
-/* rgb(255, 135, 79); */
 body {
   font-family: "Poppins", sans-serif;
-  font-style: italic;
   font-size: 18px;
   color: rgba(255, 255, 255, 0.7);
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
+  /* J'ai utilisé des combinaisons de dégradés de canva
+  https://www.canva.com/colors/color-wheel/ */
   background: radial-gradient(
       circle at 50% 0,
       red,
@@ -100,6 +101,7 @@ body {
     );
 }
 
+/* l'application totale existe à l'intérieur de cette div , app_body */
 .app_body {
   position: fixed;
   top: 0px;
@@ -126,34 +128,41 @@ body {
   }
 }
 
+/* taille de la grille */
 .grid-parent {
   display: grid;
-  min-height: 260px;
+  height: 260px;
   width: 270px;
 }
 
+/* style par défaut pour grid */
 .gridSquare {
   background-color: rgba(200, 200, 200, 0.5);
   border: 1px black solid;
 }
 
+/* palette de couleurs flex */
+
 .couleurs-palette {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* ainsi, lorsque la largeur est pleine de couleurs, la palette aura une autre ligne */
   width: 270px;
 }
 
+/* style de chaque carré de couleur à l'intérieur de la palette de couleurs*/
 .palette__item {
   height: 20px;
   width: 20px;
   border: 1px rgba(0, 0, 0, 0.5) solid;
 }
 
+/* Bouton Effacer pour la palette de couleurs */
 .effacer-palette {
   margin-bottom: 5px;
-  visibility: hidden;
+  visibility: hidden; /* le btn est caché */
 }
 
+/* btns: à propse , efface-palette style */
 .propos,
 .effacer-palette {
   bottom: 0px;
@@ -165,18 +174,76 @@ body {
   box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 1px;
 }
 
+/* btns: à propse , efface-palette hover style */
 .propos:hover,
 .effacer-palette:hover {
   box-shadow: rgba(255, 255, 255, 0.3) 1px 1px 1px;
   border: solid 1px rgba(0, 0, 0, 0.3);
 }
 
+/* modal */
+.hidden {
+  display: none;
+}
+.modal {
+  z-index: 10;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 1px 2px 2px rgba(7, 7, 7, 0.3);
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.5);
+  background: rgba(94, 56, 56, 0.9);
+  border: solid 1.5px rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  padding: 2px 8px;
+  margin: auto;
+  backdrop-filter: blur(20px);
+  max-width: 270px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(7px);
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index: 5;
+}
+
+.close {
+  color: white;
+  float: right;
+  font-size: 25px;
+}
+
+.close:hover {
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+}
+
+/* *************** styliser la grid ***************/
+/* les styles de boutons de style , 4 btns */
+#option1,
+#option2,
+#option3,
+#option4 {
+  margin-top: 7px;
+  display: flex;
+  flex-direction: row;
+  height: 20px;
+  background-color: rgba(200, 200, 200, 0);
+  border: 0px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+/* styliser la div qui contient les 4 btns de style */
 .options {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
+/* styliser les carrés à l'intérieur du style btn - 4 styles */
 .option1,
 .option2,
 .option3,
@@ -205,6 +272,7 @@ body {
   border: 1px black solid;
 }
 
+/* classes de style pour la grid à ajouter via JS -4 classes */
 .grid_style1 {
   background-color: rgb(255, 255, 255);
   border: 1px black solid;
@@ -223,54 +291,4 @@ body {
 .grid_style4 {
   background-color: rgba(200, 200, 200, 0.5);
   border: 1px black solid;
-}
-
-#option1,
-#option2,
-#option3,
-#option4 {
-  margin-top: 7px;
-  display: flex;
-  flex-direction: row;
-  height: 20px;
-  background-color: rgba(200, 200, 200, 0);
-  border: 0px;
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
-}
-
-.modal {
-  display: none; 
-  z-index: 1; 
-  padding: 40% 0; 
-  max-width: 270px; 
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 1px 2px 2px rgba(7, 7, 7, 0.3);
-}
-
-/* Modal Content */
-.modal-content {
-  backdrop-filter: blur(20px);
-  background: rgba(8, 8, 8, 0.9);
-  border: solid 1.5px rgba(255, 255, 255, 0.3);
-  border-radius: 5px;
-  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.5);
-}
-
-/* The Close Button */
-.close {
-  color: white;
-  float: right;
-  font-size: 28px;
-}
-
-.close:hover {
-  color: rgba(255, 255, 255, 0.6);
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.modal-body {
-  padding: 2px 16px;
-  align-self: center;
-  background-color: rgba(255, 255, 255, 0.1);
 }

@@ -18,12 +18,12 @@
     <!-- changer la taille de grid-->
     <div class="slidecontainer">
       <input type="range" min="2" max="50" value="16" id="myRange">
-      <p>Valeur: <span id="demo"></span></p>
+      <p>Valeur <span id="demo"></span></p>
     </div>
 
     <!-- sélectionner une couleur -->
     <form>
-      <label for="select_color">Sélectionnez une couleur:</label>
+      <label for="select_color">Sélectionnez une couleur</label>
       <input type="color" id="select_color" name="select_color" value="#ff0000" onchange="ajouter_nouv_couleur()"><br><br>
     </form>
 
@@ -72,20 +72,20 @@
   <!-- fin: Application Body Div -->
 
   
-  <!-- contenu modal -->
-  <div id="myModal" class="modal">
-  
-    <!-- Modal content -->
-    <div class="modal-content">
-      <div class="modal-body">
+  <!-- modal -->
+  <div class="modal hidden">
         <span class="close">&times;</span>
-        <p>Je m'appelle Saara Bilyour. J'adore créer des applications avec Javascript. J'espère que vous aimez le pixel art :)
+        <p>Je m'appelle Saara Bilyour. <br>
+           J'adore créer des applications avec Javascript. <br>
+           J'espère que vous aimez le pixel art :) <br>
+           s.bilyour@hotmail.com
         </p>
-      </div>
-    </div>
-  
   </div>
+  <div class="overlay hidden"></div>
   <!-- fin contenu modal -->
+
+  </div>
+  
 
 
   

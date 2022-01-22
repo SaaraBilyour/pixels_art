@@ -1,6 +1,6 @@
 
 //====================== Créer Grid ===================
-// *********** créer la grid par défaut 16 * 16 ***********
+// créer la grid par défaut 16 * 16 
 const grid = document.querySelector('.grid-parent');
 grid.style.setProperty('grid-template-columns', 'repeat(' + 16 + ', 1fr)');
 for (let i = 0; i < 16 * 16; i++) {
@@ -9,14 +9,14 @@ for (let i = 0; i < 16 * 16; i++) {
   grid.appendChild(cell);
 }
 
-// *********** taille de la grid d'affichage ***********
+// taille de la grid d'affichage 
 var slider = document.getElementById("myRange");
 var output = document.getElementById("demo");
 output.innerHTML = [slider.value, 'x', slider.value].join(' '); 
 document.addEventListener("DOMContentLoaded", addEvents(), false);
 
 
-// *********** Changer grid de taille *************
+// Changer grid de taille 
 slider.oninput = function () {
   output.innerHTML = [this.value, 'x', this.value].join(' ');
   const nb = parseInt(this.value);
@@ -36,7 +36,7 @@ slider.oninput = function () {
 
 
 //================= Grid événements ===================
-// *********** ajoutez des événements (touch, mouseenter)***********
+// ajoutez des événements (touch, mouseenter)
 function addEvents() {
   divs = document.getElementsByClassName('gridSquare');
   for (let i = 0; i < divs.length; i++) {
@@ -52,19 +52,23 @@ function addEvents() {
 var couleurs = [];
 const palette = document.getElementsByClassName('couleurs-palette')[0];
 
-// *********** calculer une couleur aléatoire : 
-// *********** https://css-tricks.com/snippets/javascript/random-hex-color/
-const couleur_aleatoire = ['#', Math.floor(Math.random() * 16777215).toString(16)].join('');
-document.getElementById('select_color').value = couleur_aleatoire;
+// calculer une couleur aléatoire - la source: 
+// https://developer.mozilla.org/fr/docs/Learn/JavaScript/Building_blocks/Events
+function random(number) {
+  return Math.floor(Math.random() * (number + 1));
+}
+var rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+console.log(rndCol);
 
-// *********** changer de couleur *********** 
+
+// changer de couleur 
 function changeColor(e) {
   //s'il n'y a pas de couleur sélectionnée, créez une couleur aléatoire
   if (couleurs.length === 0){
-    e.target.style.setProperty('background-color', couleur_aleatoire);
+    e.target.style.setProperty('background-color', rndCol);
   }
 
-  //s'il y a des couleurs sélectionnées, utilisez-les
+  // s'il y a des couleurs sélectionnées, utilisez-les
   else {
   // Sélectionnez une couleur aléatoire dans la palette
    const random = Math.floor(Math.random() * (couleurs.length));
@@ -74,8 +78,7 @@ function changeColor(e) {
 }
 
 
-// ***********  ajouter une nouvelle couleur à la palette *********** 
-// ***********  modifier le bouton Effacer visible *********** 
+// ajouter une nouvelle couleur à la palette, modifier le bouton Effacer visible 
 const effacer__btn = document.body.getElementsByClassName('effacer-palette')[0];
 function ajouter_nouv_couleur() {
   const couleur = document.getElementById('select_color').value;
@@ -88,8 +91,7 @@ function ajouter_nouv_couleur() {
 }
 
 
-// *********** supprimer la palette de couleurs *********** 
-// ***********  et masquer le bouton Effacer *********** 
+// supprimer la palette de couleurs et masquer le bouton Effacer  
 effacer__btn.addEventListener('click', () => {
   couleurs = [];
   console.log('empty');
@@ -98,6 +100,28 @@ effacer__btn.addEventListener('click', () => {
 })
 
 
+// ================ Modal  ================
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector('.overlay');
+const propos_btn = document.querySelector(".propos");
+const close_modal_btn = document.querySelector(".close");
+
+const openModal = function () {
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+};
+
+const closeModal = function () {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+}
+
+propos_btn.addEventListener('click', openModal);
+close_modal_btn.addEventListener('click', closeModal); document.addEventListener('keydown', function (e) {
+  if ((e.key === 'Escape') && !modal.classList.contains('hidden')) {
+    closeModal();
+  }
+});
 
 // ================changer le style de la grille===============
 
@@ -127,7 +151,7 @@ function changeStyle(e) {
     case 'option3': style = 'grid_style3'; break;
     case 'option4': style = 'grid_style4'; break;
   }
-  
+
   for (let i = 0; i < squares.length; i++) {
     (squares[i].classList.length === 1) ?
       // s'il n'y a qu'un seul style de classe, ajoutez le nouveau style de classe
@@ -138,33 +162,3 @@ function changeStyle(e) {
 }
 
 
-
-
-
-
-// ================ Modal  ================
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementsByClassName("propos")[0];
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
