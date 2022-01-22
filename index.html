@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Créateur d’art Pixel</title>
+</head>
+<body> 
+
+  <!-- Application Body Div -->
+  <div class="app_body">
+
+    <!-- nom de l'application -->
+    <h1>Créateur <br> d’art Pixel</h1>
+
+    <!-- changer la taille de grid-->
+    <div class="slidecontainer">
+      <input type="range" min="2" max="50" value="16" id="myRange">
+      <p>Valeur: <span id="demo"></span></p>
+    </div>
+
+    <!-- sélectionner une couleur -->
+    <form>
+      <label for="select_color">Sélectionnez une couleur:</label>
+      <input type="color" id="select_color" name="select_color" value="#ff0000" onchange="ajouter_nouv_couleur()"><br><br>
+    </form>
+
+    <!-- couleurs palette -->
+    <div class="couleurs-palette"></div>
+
+    <!-- Btn Effacer la Palette -->
+    <button class="effacer-palette">Effacer la Palette</button>
+
+    <!-- grid -->
+    <div class="grid-parent"></div>
+
+    <!-- btn À propos modal -->
+    <button type="button" class="propos">À propos!</button>
+
+    <!-- 4 options de style par grid -->
+    <div class="options">
+
+      <!-- Style 1 : fond blanc, bordure noir -->
+      <button id="option1">
+        <div class="option1"></div>
+        <div class="option1"></div>
+      </button>
+
+      <!--Style 2 : fond noir, bordure noir  -->
+      <button id="option2">
+        <div class="option2"></div>
+        <div class="option2"></div>
+      </button>
+
+      <!-- Style 3 : fond blanc, bordure blanc -->
+      <button id="option3">
+        <div class="option3"></div>
+        <div class="option3"></div>
+      </button>
+
+      <!-- Style 4 : fond transparent, bordure blanc -->
+      <button id="option4"> 
+        <div class="option4"></div>
+        <div class="option4"></div>
+      </button>
+    </div>
+    <!-- fin : options de style par grid -->
+
+  </div>
+  <!-- fin: Application Body Div -->
+
+  
+  <!-- contenu modal -->
+  <div id="myModal" class="modal">
+  
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-body">
+        <span class="close">&times;</span>
+        <p>Je m'appelle Saara Bilyour. J'adore créer des applications avec Javascript. J'espère que vous aimez le pixel art :)
+        </p>
+      </div>
+    </div>
+  
+  </div>
+  <!-- fin contenu modal -->
+
+
+  
+</body>
+<script src="script.js"></script>
+</html>

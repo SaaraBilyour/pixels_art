@@ -1,0 +1,276 @@
+@import url("https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:ital,wght@0,100;0,300;1,100;1,200;1,300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: "Parisienne", cursive;
+  font-size: 35px;
+  font-weight: 600;
+  text-shadow: 1px 3px 1px rgba(7, 7, 7, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 20px;
+  border-bottom: double 5px rgba(255, 255, 255, 0.2);
+}
+
+/* rgb(255, 135, 79); */
+body {
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background: radial-gradient(
+      circle at 50% 0,
+      red,
+      rgba(242, 13, 13, 0.8) 10%,
+      rgba(230, 26, 26, 0.6) 20%,
+      rgba(204, 51, 51, 0.4) 30%,
+      rgba(166, 89, 89, 0.2) 40%,
+      hsla(0, 0%, 50%, 0) 50%
+    ),
+    radial-gradient(
+      circle at 85.35533905932738% 14.644660940672622%,
+      #ffbf00,
+      rgba(242, 185, 13, 0.8) 10%,
+      rgba(230, 179, 26, 0.6) 20%,
+      rgba(204, 166, 51, 0.4) 30%,
+      rgba(166, 147, 89, 0.2) 40%,
+      hsla(45, 0%, 50%, 0) 50%
+    ),
+    radial-gradient(
+      circle at 100% 50%,
+      #80ff00,
+      rgba(128, 242, 13, 0.8) 10%,
+      rgba(128, 230, 26, 0.6) 20%,
+      rgba(128, 204, 51, 0.4) 30%,
+      rgba(128, 166, 89, 0.2) 40%,
+      hsla(90, 0%, 50%, 0) 50%
+    ),
+    radial-gradient(
+      circle at 85.35533905932738% 85.35533905932738%,
+      #00ff40,
+      rgba(13, 242, 70, 0.8) 10%,
+      rgba(26, 230, 77, 0.6) 20%,
+      rgba(51, 204, 89, 0.4) 30%,
+      rgba(89, 166, 108, 0.2) 40%,
+      hsla(135, 0%, 50%, 0) 50%
+    ),
+    radial-gradient(
+      circle at 50.00000000000001% 100%,
+      #0ff,
+      rgba(13, 242, 242, 0.8) 10%,
+      rgba(26, 230, 230, 0.6) 20%,
+      rgba(51, 204, 204, 0.4) 30%,
+      rgba(89, 166, 166, 0.2) 40%,
+      hsla(180, 0%, 50%, 0) 50%
+    ),
+    radial-gradient(
+      circle at 14.64466094067263% 85.35533905932738%,
+      #0040ff,
+      rgba(13, 70, 242, 0.8) 10%,
+      rgba(26, 77, 230, 0.6) 20%,
+      rgba(51, 89, 204, 0.4) 30%,
+      rgba(89, 108, 166, 0.2) 40%,
+      hsla(225, 0%, 50%, 0) 50%
+    ),
+    radial-gradient(
+      circle at 0 50.00000000000001%,
+      #7f00ff,
+      rgba(128, 13, 242, 0.8) 10%,
+      rgba(128, 26, 230, 0.6) 20%,
+      rgba(128, 51, 204, 0.4) 30%,
+      rgba(128, 89, 166, 0.2) 40%,
+      hsla(270, 0%, 50%, 0) 50%
+    ),
+    radial-gradient(
+      circle at 14.644660940672615% 14.64466094067263%,
+      #ff00bf,
+      rgba(242, 13, 185, 0.8) 10%,
+      rgba(230, 26, 179, 0.6) 20%,
+      rgba(204, 51, 166, 0.4) 30%,
+      rgba(166, 89, 147, 0.2) 40%,
+      hsla(315, 0%, 50%, 0) 50%
+    );
+}
+
+.app_body {
+  position: fixed;
+  top: 0px;
+  width: 290px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  text-align: center;
+  padding: 9px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 10px;
+  border: solid 1.5px rgba(255, 255, 255, 0.1);
+}
+
+@media (max-height: 650px) {
+  .app_body {
+    height: 600px;
+  }
+  h1 {
+    font-size: 25px;
+  }
+
+  body {
+    font-size: 15px;
+  }
+}
+
+.grid-parent {
+  display: grid;
+  min-height: 260px;
+  width: 270px;
+}
+
+.gridSquare {
+  background-color: rgba(200, 200, 200, 0.5);
+  border: 1px black solid;
+}
+
+.couleurs-palette {
+  display: flex;
+  flex-wrap: wrap;
+  width: 270px;
+}
+
+.palette__item {
+  height: 20px;
+  width: 20px;
+  border: 1px rgba(0, 0, 0, 0.5) solid;
+}
+
+.effacer-palette {
+  margin-bottom: 5px;
+  visibility: hidden;
+}
+
+.propos,
+.effacer-palette {
+  bottom: 0px;
+  height: 22px;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(200, 200, 200, 0.2);
+  border: solid 1px rgba(255, 255, 255, 0.3);
+  box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 1px;
+}
+
+.propos:hover,
+.effacer-palette:hover {
+  box-shadow: rgba(255, 255, 255, 0.3) 1px 1px 1px;
+  border: solid 1px rgba(0, 0, 0, 0.3);
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.option1,
+.option2,
+.option3,
+.option4 {
+  height: 20px;
+  width: 20px;
+}
+
+.option1 {
+  background-color: rgb(255, 255, 255);
+  border: 1px black solid;
+}
+
+.option2 {
+  background-color: rgb(0, 0, 0);
+  border: 1px black solid;
+}
+
+.option3 {
+  background-color: rgb(255, 255, 255);
+  border: 1px white solid;
+}
+
+.option4 {
+  background-color: rgba(200, 200, 200, 0.5);
+  border: 1px black solid;
+}
+
+.grid_style1 {
+  background-color: rgb(255, 255, 255);
+  border: 1px black solid;
+}
+
+.grid_style2 {
+  background-color: rgb(0, 0, 0);
+  border: 1px black solid;
+}
+
+.grid_style3 {
+  background-color: rgb(255, 255, 255);
+  border: 1px white solid;
+}
+
+.grid_style4 {
+  background-color: rgba(200, 200, 200, 0.5);
+  border: 1px black solid;
+}
+
+#option1,
+#option2,
+#option3,
+#option4 {
+  margin-top: 7px;
+  display: flex;
+  flex-direction: row;
+  height: 20px;
+  background-color: rgba(200, 200, 200, 0);
+  border: 0px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+  display: none; 
+  z-index: 1; 
+  padding: 40% 0; 
+  max-width: 270px; 
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 1px 2px 2px rgba(7, 7, 7, 0.3);
+}
+
+/* Modal Content */
+.modal-content {
+  backdrop-filter: blur(20px);
+  background: rgba(8, 8, 8, 0.9);
+  border: solid 1.5px rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+}
+
+.close:hover {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 2px 16px;
+  align-self: center;
+  background-color: rgba(255, 255, 255, 0.1);
+}
